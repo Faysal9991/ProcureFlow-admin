@@ -62,10 +62,15 @@ const approvalRoles: AdminRole[] = [
   "PROCUREMENT",
 ];
 const approvalWorkflowRoles: AdminRole[] = ["COMPANY_ADMIN", "PROCUREMENT"];
-const procurementRoles: AdminRole[] = ["COMPANY_ADMIN", "MANAGER", "PROCUREMENT"];
 const purchaseOrderRoles: AdminRole[] = [
   "COMPANY_ADMIN",
   "FINANCE",
+  "PROCUREMENT",
+];
+const rfqRoles: AdminRole[] = [
+  "COMPANY_ADMIN",
+  "FINANCE",
+  "MANAGER",
   "PROCUREMENT",
 ];
 const vendorRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
@@ -140,7 +145,7 @@ export const navigationGroups: NavigationGroup[] = [
         title: "Vendors",
       },
       {
-        allowedRoles: procurementRoles,
+        allowedRoles: rfqRoles,
         href: ROUTES.rfqs,
         icon: "rfqs",
         requiredPermissions: ["rfq.view", "rfq.manage"],

@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { RFQsPage } from "@/features/rfqs/components";
 
 export default function RfqsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.rfqs} />;
+  return <RFQsPage />;
 }
