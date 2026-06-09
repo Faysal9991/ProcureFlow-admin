@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { PaymentsPage as PaymentsClientPage } from "@/features/payments/components";
 
 export default function PaymentsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.payments} />;
+  return <PaymentsClientPage />;
 }

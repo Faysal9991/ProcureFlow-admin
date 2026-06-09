@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { RolesPermissionsPage as RolesPermissionsFeaturePage } from "@/features/roles-permissions/components";
 
 export default function RolesPermissionsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.rolesPermissions} />;
+  return <RolesPermissionsFeaturePage />;
 }

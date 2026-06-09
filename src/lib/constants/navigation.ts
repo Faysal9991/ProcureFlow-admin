@@ -74,6 +74,7 @@ const rfqRoles: AdminRole[] = [
   "PROCUREMENT",
 ];
 const vendorRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
+const invoiceRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
 const financeRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE"];
 const managementRoles: AdminRole[] = [
   "COMPANY_ADMIN",
@@ -163,7 +164,7 @@ export const navigationGroups: NavigationGroup[] = [
     title: "Finance",
     items: [
       {
-        allowedRoles: financeRoles,
+        allowedRoles: invoiceRoles,
         href: ROUTES.invoices,
         icon: "invoices",
         requiredPermissions: ["invoice.view"],

@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { InvoicesPage as InvoicesClientPage } from "@/features/invoices/components";
 
 export default function InvoicesPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.invoices} />;
+  return <InvoicesClientPage />;
 }
