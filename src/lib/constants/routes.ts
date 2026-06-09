@@ -1,4 +1,5 @@
 export const ROUTES = {
+  approvalWorkflows: "/approval-workflows",
   approvals: "/approvals",
   auditLogs: "/audit-logs",
   budgets: "/budgets",

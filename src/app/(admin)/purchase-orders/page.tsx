@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { PurchaseOrdersPage as PurchaseOrdersFeaturePage } from "@/features/purchase-orders/components";
 
-export default function PurchaseOrdersPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.purchaseOrders} />;
+export default function PurchaseOrdersPageRoute() {
+  return <PurchaseOrdersFeaturePage />;
 }

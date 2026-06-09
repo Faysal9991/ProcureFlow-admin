@@ -2,6 +2,7 @@ import { ROUTES } from "./routes";
 import type { AdminRole, AuthUser } from "@/types/auth";
 
 export type NavigationIcon =
+  | "approvalWorkflows"
   | "approvals"
   | "auditLogs"
   | "billing"
@@ -60,7 +61,13 @@ const approvalRoles: AdminRole[] = [
   "MANAGER",
   "PROCUREMENT",
 ];
+const approvalWorkflowRoles: AdminRole[] = ["COMPANY_ADMIN", "PROCUREMENT"];
 const procurementRoles: AdminRole[] = ["COMPANY_ADMIN", "MANAGER", "PROCUREMENT"];
+const purchaseOrderRoles: AdminRole[] = [
+  "COMPANY_ADMIN",
+  "FINANCE",
+  "PROCUREMENT",
+];
 const vendorRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
 const financeRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE"];
 const managementRoles: AdminRole[] = [
@@ -121,6 +128,12 @@ export const navigationGroups: NavigationGroup[] = [
         title: "Approvals",
       },
       {
+        allowedRoles: approvalWorkflowRoles,
+        href: ROUTES.approvalWorkflows,
+        icon: "approvalWorkflows",
+        title: "Approval Workflows",
+      },
+      {
         allowedRoles: vendorRoles,
         href: ROUTES.vendors,
         icon: "vendors",
@@ -134,10 +147,9 @@ export const navigationGroups: NavigationGroup[] = [
         title: "RFQ",
       },
       {
-        allowedRoles: procurementRoles,
+        allowedRoles: purchaseOrderRoles,
         href: ROUTES.purchaseOrders,
         icon: "purchaseOrders",
-        requiredPermissions: ["purchase_order.view"],
         title: "Purchase Orders",
       },
     ],

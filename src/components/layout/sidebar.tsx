@@ -12,6 +12,7 @@ import {
   CreditCard,
   FileCheck2,
   FileText,
+  GitBranch,
   LayoutDashboard,
   Landmark,
   ReceiptText,
@@ -35,6 +36,7 @@ import { cn } from "@/lib/utils/cn";
 import { useAuthStore } from "@/store/auth-store";
 
 const iconMap: Record<NavigationIcon, ComponentType<{ className?: string }>> = {
+  approvalWorkflows: GitBranch,
   approvals: ClipboardCheck,
   auditLogs: ScrollText,
   billing: CreditCard,
