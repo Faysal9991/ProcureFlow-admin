@@ -54,6 +54,12 @@ const tenantRoles: AdminRole[] = [
 ];
 
 const adminRoles: AdminRole[] = ["COMPANY_ADMIN"];
+const approvalRoles: AdminRole[] = [
+  "COMPANY_ADMIN",
+  "FINANCE",
+  "MANAGER",
+  "PROCUREMENT",
+];
 const procurementRoles: AdminRole[] = ["COMPANY_ADMIN", "MANAGER", "PROCUREMENT"];
 const vendorRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
 const financeRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE"];
@@ -109,7 +115,7 @@ export const navigationGroups: NavigationGroup[] = [
         title: "Purchase Requests",
       },
       {
-        allowedRoles: tenantRoles,
+        allowedRoles: approvalRoles,
         href: ROUTES.approvals,
         icon: "approvals",
         title: "Approvals",

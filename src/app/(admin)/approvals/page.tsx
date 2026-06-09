@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { ApprovalsPage as ApprovalsFeaturePage } from "@/features/approvals/components";
 
 export default function ApprovalsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.approvals} />;
+  return <ApprovalsFeaturePage />;
 }
