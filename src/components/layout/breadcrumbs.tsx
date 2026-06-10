@@ -21,7 +21,7 @@ export function Breadcrumbs({ pathname }: BreadcrumbsProps) {
         <li>
           <Link
             href={ROUTES.dashboard}
-            className="transition-colors hover:text-foreground"
+            className="transition-colors duration-200 hover:text-foreground"
           >
             Admin
           </Link>

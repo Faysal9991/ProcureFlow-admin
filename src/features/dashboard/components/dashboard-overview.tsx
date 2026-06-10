@@ -22,6 +22,7 @@ import {
 import { DashboardFilters } from "./dashboard-filters";
 import { DepartmentSpend } from "./department-spend";
 import { OverdueInvoices } from "./overdue-invoices";
+import { ProcessFlowSection } from "./process-flow-section";
 import { RequestStatusChart } from "./request-status-chart";
 import { SpendSummary } from "./spend-summary";
 import { SummaryCards } from "./summary-card";
@@ -114,6 +115,8 @@ export function DashboardOverview() {
         onDepartmentIdChange={setDepartmentId}
         onPresetChange={handlePresetChange}
       />
+
+      <ProcessFlowSection />
 
       <SummaryCards
         error={summaryQuery.error}

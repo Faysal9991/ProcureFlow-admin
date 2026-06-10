@@ -2,6 +2,7 @@ export * from "./dashboard-overview";
 export * from "./department-spend";
 export * from "./dashboard-filters";
 export * from "./overdue-invoices";
+export * from "./process-flow-section";
 export * from "./request-status-chart";
 export * from "./spend-summary";
 export * from "./summary-card";

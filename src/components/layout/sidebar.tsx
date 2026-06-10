@@ -74,30 +74,30 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-foreground/30 transition-opacity lg:hidden",
+          "fixed inset-0 z-40 bg-foreground/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         onClick={onClose}
       />
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-border bg-surface transition-transform duration-200 lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground shadow-elevated transition-transform duration-300 ease-out lg:translate-x-0",
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex h-16 items-center gap-3 border-b border-border px-5">
-          <div className="flex size-10 items-center justify-center rounded-lg bg-primary text-base font-bold text-white">
+        <div className="flex h-16 items-center gap-3 border-b border-sidebar-border px-5">
+          <div className="flex size-10 items-center justify-center rounded-lg bg-primary text-base font-bold text-white shadow-primary">
             PF
           </div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">
+            <p className="truncate text-sm font-semibold text-sidebar-foreground">
               {APP_CONFIG.name}
             </p>
-            <p className="text-xs text-muted-foreground">Admin Console</p>
+            <p className="text-xs text-sidebar-subtle">Admin Console</p>
           </div>
           <button
             type="button"
-            className="ml-auto rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground lg:hidden"
+            className="ml-auto rounded-md p-2 text-sidebar-subtle transition-all duration-200 hover:bg-white/10 hover:text-sidebar-foreground lg:hidden"
             onClick={onClose}
             aria-label="Close sidebar"
           >
@@ -117,7 +117,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
             return (
               <div key={group.title}>
-                <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-normal text-muted-foreground">
+                <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-normal text-sidebar-subtle/80">
                   {group.title}
                 </p>
                 <div className="space-y-1">
@@ -130,14 +130,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                         key={item.href}
                         href={item.href}
                         className={cn(
-                          "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                          "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ease-out",
                           isActive
-                            ? "bg-primary text-white"
-                            : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                            ? "bg-primary text-white shadow-primary"
+                            : "text-sidebar-subtle hover:translate-x-0.5 hover:bg-white/10 hover:text-sidebar-foreground",
                         )}
                         onClick={onClose}
                       >
-                        <Icon className="size-5 shrink-0" />
+                        <Icon
+                          className={cn(
+                            "size-5 shrink-0 transition-transform duration-200",
+                            isActive && "scale-105",
+                          )}
+                        />
                         <span className="truncate">{item.title}</span>
                       </Link>
                     );

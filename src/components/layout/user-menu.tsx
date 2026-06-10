@@ -41,14 +41,14 @@ export function UserMenu() {
       <button
         type="button"
         className={cn(
-          "flex items-center gap-2 rounded-lg p-1.5 text-left transition-colors hover:bg-muted",
-          isOpen && "bg-muted",
+          "flex items-center gap-2 rounded-lg p-1.5 text-left transition-all duration-200 hover:bg-muted",
+          isOpen && "bg-muted shadow-[inset_0_1px_0_rgb(255_255_255/0.7)]",
         )}
         onClick={() => setIsOpen((current) => !current)}
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
-        <div className="flex size-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+        <div className="flex size-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white shadow-primary">
           {initials}
         </div>
         <div className="hidden min-w-0 text-right sm:block">
@@ -63,9 +63,9 @@ export function UserMenu() {
       {isOpen ? (
         <div
           role="menu"
-          className="absolute right-0 top-12 z-50 w-72 rounded-lg border border-border bg-surface p-2 shadow-card"
+          className="animate-panel-in absolute right-0 top-12 z-50 w-72 rounded-lg border border-border/80 bg-surface p-2 shadow-elevated"
         >
-          <div className="flex items-start gap-3 border-b border-border px-3 py-3">
+          <div className="flex items-start gap-3 border-b border-border/80 px-3 py-3">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
               {initials}
             </div>

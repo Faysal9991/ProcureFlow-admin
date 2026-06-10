@@ -3,8 +3,11 @@ import { cn } from "@/lib/utils/cn";
 
 export function Table({ className, ...props }: HTMLAttributes<HTMLTableElement>) {
   return (
-    <div className="w-full overflow-auto">
-      <table className={cn("w-full caption-bottom text-sm", className)} {...props} />
+    <div className="w-full overflow-auto rounded-lg">
+      <table
+        className={cn("w-full caption-bottom text-sm", className)}
+        {...props}
+      />
     </div>
   );
 }
@@ -13,7 +16,12 @@ export function TableHeader({
   className,
   ...props
 }: HTMLAttributes<HTMLTableSectionElement>) {
-  return <thead className={cn("border-b border-border", className)} {...props} />;
+  return (
+    <thead
+      className={cn("border-b border-border bg-muted/55", className)}
+      {...props}
+    />
+  );
 }
 
 export function TableBody({
@@ -26,7 +34,10 @@ export function TableBody({
 export function TableRow({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) {
   return (
     <tr
-      className={cn("border-b border-border transition-colors hover:bg-muted/60", className)}
+      className={cn(
+        "border-b border-border/80 transition-colors duration-150 hover:bg-primary/[0.04]",
+        className,
+      )}
       {...props}
     />
   );
@@ -52,6 +63,9 @@ export function TableCell({
   ...props
 }: TdHTMLAttributes<HTMLTableCellElement>) {
   return (
-    <td className={cn("px-4 py-3 align-middle text-foreground", className)} {...props} />
+    <td
+      className={cn("px-4 py-3 align-middle text-foreground", className)}
+      {...props}
+    />
   );
 }

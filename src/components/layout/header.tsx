@@ -17,7 +17,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
   const routeItem = getRouteNavigationItem(pathname);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-surface/95 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-border/80 bg-surface/90 shadow-[0_1px_0_rgb(255_255_255/0.8)] backdrop-blur-xl">
       <div className="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
         <Button
           type="button"
@@ -30,7 +30,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
           <Menu className="size-5" />
         </Button>
 
-        <div className="min-w-0">
+        <div className="min-w-0 pr-2">
           <Breadcrumbs pathname={pathname} />
           <p className="mt-0.5 truncate text-sm font-semibold text-foreground">
             {routeItem?.title ?? "Admin"}
@@ -42,7 +42,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
           <Input
             type="search"
             placeholder="Search requests, vendors, invoices"
-            className="pl-9"
+            className="border-border/80 bg-white/80 pl-9 shadow-none"
           />
         </div>
 
