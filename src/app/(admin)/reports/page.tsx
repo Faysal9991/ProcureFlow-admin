@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { ReportsLandingPage } from "@/features/reports/components";
 
 export default function ReportsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.reports} />;
+  return <ReportsLandingPage />;
 }

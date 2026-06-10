@@ -15,6 +15,7 @@ import {
   GitBranch,
   LayoutDashboard,
   Landmark,
+  Paperclip,
   ReceiptText,
   ScrollText,
   Settings,
@@ -38,6 +39,7 @@ import { useAuthStore } from "@/store/auth-store";
 const iconMap: Record<NavigationIcon, ComponentType<{ className?: string }>> = {
   approvalWorkflows: GitBranch,
   approvals: ClipboardCheck,
+  attachments: Paperclip,
   auditLogs: ScrollText,
   billing: CreditCard,
   budgets: Wallet,

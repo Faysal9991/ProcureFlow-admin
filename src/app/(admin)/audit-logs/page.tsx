@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { AuditLogsPage as AuditLogsFeaturePage } from "@/features/audit-logs/components";
 
 export default function AuditLogsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.auditLogs} />;
+  return <AuditLogsFeaturePage />;
 }

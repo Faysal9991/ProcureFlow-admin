@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { BudgetsPage as BudgetsFeaturePage } from "@/features/budgets/components";
 
 export default function BudgetsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.budgets} />;
+  return <BudgetsFeaturePage />;
 }

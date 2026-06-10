@@ -27,6 +27,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { AttachmentSection } from "@/features/attachments/components";
 import { getApiErrorMessage } from "@/lib/api/client";
 import { ROUTES } from "@/lib/constants/routes";
 import { useAuthStore } from "@/store/auth-store";
@@ -206,6 +207,8 @@ export function InvoiceDetailPage({ invoiceId }: InvoiceDetailPageProps) {
           </p>
         </CardContent>
       </Card>
+
+      <AttachmentSection entityId={invoice.id} entityType="INVOICE" />
 
       <InvoiceFormDrawer
         eligibleOrders={formOrders}

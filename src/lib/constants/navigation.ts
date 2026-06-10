@@ -4,6 +4,7 @@ import type { AdminRole, AuthUser } from "@/types/auth";
 export type NavigationIcon =
   | "approvalWorkflows"
   | "approvals"
+  | "attachments"
   | "auditLogs"
   | "billing"
   | "budgets"
@@ -25,6 +26,7 @@ export type NavigationIcon =
 
 export type NavigationItem = {
   allowedRoles?: AdminRole[];
+  excludedRoles?: AdminRole[];
   href: string;
   icon: NavigationIcon;
   requiredPermissions?: string[];
@@ -76,13 +78,7 @@ const rfqRoles: AdminRole[] = [
 const vendorRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
 const invoiceRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
 const financeRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE"];
-const managementRoles: AdminRole[] = [
-  "COMPANY_ADMIN",
-  "FINANCE",
-  "MANAGER",
-  "PROCUREMENT",
-];
-
+const settingsRoles: AdminRole[] = ["COMPANY_ADMIN", "FINANCE", "PROCUREMENT"];
 export const navigationGroups: NavigationGroup[] = [
   {
     title: "Overview",
@@ -178,7 +174,7 @@ export const navigationGroups: NavigationGroup[] = [
         title: "Payments",
       },
       {
-        allowedRoles: financeRoles,
+        excludedRoles: ["SUPER_ADMIN"],
         href: ROUTES.budgets,
         icon: "budgets",
         requiredPermissions: ["budget.view"],
@@ -190,7 +186,7 @@ export const navigationGroups: NavigationGroup[] = [
     title: "Management",
     items: [
       {
-        allowedRoles: managementRoles,
+        excludedRoles: ["SUPER_ADMIN"],
         href: ROUTES.reports,
         icon: "reports",
         requiredPermissions: [
@@ -203,14 +199,23 @@ export const navigationGroups: NavigationGroup[] = [
         title: "Reports",
       },
       {
-        allowedRoles: adminRoles,
+        excludedRoles: ["SUPER_ADMIN"],
         href: ROUTES.auditLogs,
         icon: "auditLogs",
         requiredPermissions: ["audit.view"],
         title: "Audit Logs",
       },
       {
-        allowedRoles: adminRoles,
+        allowedRoles: tenantRoles,
+        excludedRoles: ["SUPER_ADMIN"],
+        href: ROUTES.attachments,
+        icon: "attachments",
+        requiredPermissions: ["attachment.view"],
+        title: "Attachments",
+      },
+      {
+        allowedRoles: settingsRoles,
+        excludedRoles: ["SUPER_ADMIN"],
         href: ROUTES.settings,
         icon: "settings",
         title: "Settings",
@@ -263,6 +268,10 @@ export function canShowNavigationItem(
 
   if (item.superAdminOnly) {
     return user.role === "SUPER_ADMIN";
+  }
+
+  if (item.excludedRoles?.includes(user.role as AdminRole)) {
+    return false;
   }
 
   if (

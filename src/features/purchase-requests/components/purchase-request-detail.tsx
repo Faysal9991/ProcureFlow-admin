@@ -24,6 +24,8 @@ import {
 } from "@/components/ui/table";
 import { ApprovalActionDialog } from "@/features/approvals/components/approval-action-dialog";
 import { ApprovalHistory } from "@/features/approvals/components/approval-history";
+import { AttachmentSection } from "@/features/attachments/components";
+import { BudgetAvailabilityChecker } from "@/features/budgets/components";
 import { getApiErrorMessage } from "@/lib/api/client";
 import { ROUTES } from "@/lib/constants/routes";
 import { useAuthStore } from "@/store/auth-store";
@@ -319,7 +321,20 @@ export function PurchaseRequestDetailPage({
         </Card>
       ) : null}
 
+      <BudgetAvailabilityChecker
+        defaultAmount={request.estimatedTotal}
+        defaultDate={request.submittedAt || request.neededDate || request.createdAt}
+        departmentId={request.departmentId}
+        description="Check live budget availability for this request amount before final approval."
+        title="Live Budget Availability"
+      />
+
       <ApprovalHistory requestId={request.id} />
+
+      <AttachmentSection
+        entityId={request.id}
+        entityType="PURCHASE_REQUEST"
+      />
 
       <CancelRequestDialog
         request={cancelRequest}

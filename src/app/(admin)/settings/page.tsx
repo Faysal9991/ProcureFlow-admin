@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { SettingsPage as CompanySettingsPage } from "@/features/settings/components";
 
 export default function SettingsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.settings} />;
+  return <CompanySettingsPage />;
 }
