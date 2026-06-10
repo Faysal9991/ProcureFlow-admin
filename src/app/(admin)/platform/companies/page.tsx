@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { PlatformCompaniesPage } from "@/features/platform/companies/components";
 
-export default function PlatformCompaniesPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.platformCompanies} />;
+export default function PlatformCompaniesRoute() {
+  return <PlatformCompaniesPage />;
 }

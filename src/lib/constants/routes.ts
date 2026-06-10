@@ -13,6 +13,7 @@ export const ROUTES = {
   payments: "/payments",
   platformBilling: "/platform/billing",
   platformCompanies: "/platform/companies",
+  platformCompanyNew: "/platform/companies/new",
   platformPlans: "/platform/plans",
   platformSubscriptions: "/platform/subscriptions",
   purchaseOrders: "/purchase-orders",
@@ -32,3 +33,11 @@ export const ROUTES = {
 
 export type RouteKey = keyof typeof ROUTES;
 export type RoutePath = (typeof ROUTES)[RouteKey];
+
+export function platformCompanyDetailPath(companyId: string) {
+  return `${ROUTES.platformCompanies}/${companyId}`;
+}
+
+export function platformCompanySubscriptionPath(companyId: string) {
+  return `${ROUTES.platformSubscriptions}?companyId=${encodeURIComponent(companyId)}`;
+}

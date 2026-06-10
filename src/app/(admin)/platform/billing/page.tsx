@@ -1,6 +1,5 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { PlatformBillingPage } from "@/features/platform/billing/components";
 
-export default function PlatformBillingPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.platformBilling} />;
+export default function PlatformBillingRoute() {
+  return <PlatformBillingPage />;
 }

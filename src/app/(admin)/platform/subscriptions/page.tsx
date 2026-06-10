@@ -1,6 +1,13 @@
-import { AdminPlaceholderPage } from "@/components/shared";
-import { pagePlaceholders } from "@/lib/constants/page-placeholders";
+import { PlatformSubscriptionsPage } from "@/features/platform/subscriptions/components";
 
-export default function PlatformSubscriptionsPage() {
-  return <AdminPlaceholderPage page={pagePlaceholders.platformSubscriptions} />;
+type PlatformSubscriptionsRouteProps = {
+  searchParams: Promise<{ companyId?: string }>;
+};
+
+export default async function PlatformSubscriptionsRoute({
+  searchParams,
+}: PlatformSubscriptionsRouteProps) {
+  const { companyId } = await searchParams;
+
+  return <PlatformSubscriptionsPage focusedCompanyId={companyId} />;
 }
